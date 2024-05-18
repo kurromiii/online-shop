@@ -42,13 +42,18 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> fndAll() {
+    public List<Product> findAll() {
         return productRepository.findAll();
     }
 
     @Override
-    public List<Product> fndAllByDeletedFalse() {
+    public List<Product> findAllByDeletedFalse() {
         return productRepository.findAllByDeletedFalse();
+    }
+
+    @Override
+    public List<Product> findAllByCategoryIdAndDeletedFalse(Long id) {
+        return productRepository.findAllByCategoryIdAndDeletedFalse(id);
     }
 
     @Override

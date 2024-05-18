@@ -16,4 +16,6 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
     void logicalRemove(Long id);
 
     List<Product> findAllByDeletedFalse();
+
+    List<Product> findAllByCategoryIdAndDeletedFalse(Long id);
 }

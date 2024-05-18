@@ -42,12 +42,12 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Category> fndAll() {
+    public List<Category> findAll() {
         return categoryRepository.findAll();
     }
 
     @Override
-    public List<Category> fndAllByDeletedFalse() {
+    public List<Category> findAllByDeletedFalse() {
         return categoryRepository.findAllByDeletedFalse();
     }
 

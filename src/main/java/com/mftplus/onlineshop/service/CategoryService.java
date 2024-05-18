@@ -14,7 +14,7 @@ public interface CategoryService {
     @Transactional
     void logicalRemove(Long id);
 
-    List<Category> fndAll();
-    List<Category> fndAllByDeletedFalse();
+    List<Category> findAll();
+    List<Category> findAllByDeletedFalse();
     Optional<Category> findById(Long id);
 }

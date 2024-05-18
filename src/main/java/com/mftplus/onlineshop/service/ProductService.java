@@ -14,7 +14,8 @@ public interface ProductService {
     @Transactional
     void logicalRemove(Long id);
 
-    List<Product> fndAll();
-    List<Product> fndAllByDeletedFalse();
+    List<Product> findAll();
+    List<Product> findAllByDeletedFalse();
+    List<Product> findAllByCategoryIdAndDeletedFalse(Long id);
     Optional<Product> findById(Long id);
 }
