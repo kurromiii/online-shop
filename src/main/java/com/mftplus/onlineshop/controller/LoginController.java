@@ -1,5 +1,6 @@
 package com.mftplus.onlineshop.controller;
 
+import com.mftplus.onlineshop.global.GlobalData;
 import com.mftplus.onlineshop.model.Role;
 import com.mftplus.onlineshop.model.User;
 import com.mftplus.onlineshop.repository.RoleRepository;
@@ -31,6 +32,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login(){
+        GlobalData.cart.clear();
         return "login";
     }
 
