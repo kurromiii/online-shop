@@ -1,5 +1,6 @@
 package com.mftplus.onlineshop.controller;
 
+import com.mftplus.onlineshop.global.GlobalData;
 import com.mftplus.onlineshop.service.Impl.CategoryServiceImpl;
 import com.mftplus.onlineshop.service.Impl.ProductServiceImpl;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ public class HomeController {
 
     @GetMapping({"/", "/home"})
     public String home(Model model){
+        model.addAttribute("cartCount", GlobalData.cart.size());
         return "index";
     }
 
@@ -26,12 +28,14 @@ public class HomeController {
     public String shop(Model model){
         model.addAttribute("categories", categoryService.findAllByDeletedFalse());
         model.addAttribute("products", productService.findAllByDeletedFalse());
+        model.addAttribute("cartCount", GlobalData.cart.size());
         return "shop";
     }
 
     @GetMapping("/shop/category/{id}")
     public String shopByCategory(Model model, @PathVariable Long id){
         model.addAttribute("categories", categoryService.findAllByDeletedFalse());
+        model.addAttribute("cartCount", GlobalData.cart.size());
         model.addAttribute("products", productService.findAllByCategoryIdAndDeletedFalse(id));
         return "shop";
     }
@@ -39,6 +43,7 @@ public class HomeController {
     @GetMapping("/shop/viewProduct/{id}")
     public String viewProduct(Model model, @PathVariable Long id){
         model.addAttribute("product", productService.findById(id).get());
+        model.addAttribute("cartCount", GlobalData.cart.size());
         return "viewProduct";
     }
 }
